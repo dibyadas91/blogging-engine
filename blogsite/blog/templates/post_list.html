@@ -1,25 +1,12 @@
-{% load staticfiles %}
+{% extends "base.html" %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-
-<html>
-<head><title>Blog</title></head>
- <body>
-   <h1>Dibya Das' Blog</h1>
-
-   {% block nav %}
-        {% include 'nav.html' %}
-   {% endblock %}
-   <br><br>
-   {% for post in post_list %}
-   <b>{{ post }}</b><br>
-   {{ post.content }}
-   <hr />
-
-   {% endfor %}
-
- </body>
-</html>
-
+{% block post %}
+    <br><br>
+    {% for post in post_list %}
+        <b>{{ post }}</b><br>
+        {{ post.content }}
+        <hr />
+    {% endfor %}
+{% endblock %}
 
 

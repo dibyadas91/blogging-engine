@@ -1,10 +1,17 @@
-    <head>
-        <title>{% block head_title %}Welcome to my blog{% endblock %}</title>
-    </head>
-    <body>
-        <h1>{% block title %}Welcome to my block{% endblock %}</h1>
-        {% block content %}
-
-        {% endblock %}
-    </body>
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+    <title>Blog</title>
+</head>
+<body>
+    <h1>Dibya Das' Blog</h1>
+    <ul class="nav">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    {% block post %}{% endblock %}
+</body>
 </html>

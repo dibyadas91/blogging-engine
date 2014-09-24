@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
-from blog.views import PostListView
+from blogsite.blog.views import PostListView
 
 
 admin.autodiscover()

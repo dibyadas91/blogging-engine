@@ -2,7 +2,7 @@ from django.core.mail import send_mail
 from django.shortcuts import redirect
 from django.views import generic
 
-from forms import Contact
+from forms import ContactForm
 from models import Post
 
 
@@ -14,11 +14,11 @@ class PostListView(generic.ListView):
 
 class ContactView(generic.FormView):
 
-    form_class = Contact
+    form_class = ContactForm
     template_name = 'contact.html'
 
     def post(self, request):
-        form = Contact(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
             send_mail(
                 request.POST['subject'],
@@ -31,5 +31,5 @@ class ContactView(generic.FormView):
         return self.render_to_response({'form': form})
 
     def get(self, request):
-        form = Contact()
+        form = ContactForm()
         return self.render_to_response({'form':form})

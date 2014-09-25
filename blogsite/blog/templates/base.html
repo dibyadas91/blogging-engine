@@ -8,11 +8,13 @@
 </head>
 <body>
     <h1>Dibya Das' Blog</h1>
-    <ul class="nav">
-        <li><a href="{% url 'PostList' %}">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="{% url 'Contact' %}">Contact</a></li>
-    </ul>
+    <nav class="navbar navbar-default" role="navigation">
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'PostList' %}">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="{% url 'Contact' %}">Contact</a></li>
+        </ul>
+    </nav>
     {% block post %}{% endblock %}
     {% block contact %}{% endblock %}
 </body>

@@ -1,4 +1,5 @@
 from django.core.mail import send_mail
+from django.shortcuts import redirect
 from django.views import generic
 
 from forms import Contact
@@ -33,6 +34,8 @@ class ContactView(generic.FormView):
                     request.POST.get('email', 'dibya.das96@gmail.com'),
                     ['dibya.das96@gmail.com'],
                 )
+                return redirect('PostList')
+
         return self.render_to_response({'errors': errors})
 
     def get(self, request):

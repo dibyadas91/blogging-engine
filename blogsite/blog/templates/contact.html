@@ -3,6 +3,7 @@
 {%  block contact %}
     <h1>Contact us</h1>
     <form action="" method="post">
+        {% csrf_token %}
         <label for="subject">Subject: <input type="text" name="subject"></label>
         <p>Your e-mail (required): <input type="text" name="email"></p>
         <p>Message: <textarea name="message" rows="10" cols="50"></textarea></p>

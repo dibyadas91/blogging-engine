@@ -16,3 +16,8 @@ class Post(models.Model):
 # Create new model to store the contact messages in the database
 class Contact(models.Model):
     pass
+
+class About(models.Model):
+
+    title = models.CharField(max_length=255)
+    about = models.TextField()

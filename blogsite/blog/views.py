@@ -1,12 +1,8 @@
 from django.core.mail import send_mail
-
 from django.views import generic
+
 from forms import Contact
 from models import Post
-from django.shortcuts import render,get_object_or_404
-from django.http import HttpResponse, HttpResponseRedirect
-from django.core.urlresolvers import reverse
-
 
 
 class PostListView(generic.ListView):
@@ -22,25 +18,24 @@ class ContactView(generic.FormView):
 
     def post(self, request):
         #raise Exception('Hey I am currently in the post method!')
-         errors = []
-         if request.method == 'POST':
-             if not request.POST.get('subject', ''):
-                 errors.append('Enter a subject.')
-             if not request.POST.get('message', ''):
-                 errors.append('Enter a message.')
-             if request.POST.get('email') and '@' not in request.POST['email']:
-                 errors.append('Enter a valid e-mail address.')
-             if not errors:
-                 send_mail(
-                     request.POST['subject'],
-                     request.POST['message'],
-                     request.POST.get('email', 'dibya.das96@gmail.com'),
+        errors = []
+        if request.method == 'POST':
+            if not request.POST.get('subject', ''):
+                errors.append('Enter a subject.')
+            if not request.POST.get('message', ''):
+                errors.append('Enter a message.')
+            if request.POST.get('email') and '@' not in request.POST['email']:
+                errors.append('Enter a valid e-mail address.')
+            if not errors:
+                send_mail(
+                    request.POST['subject'],
+                    request.POST['message'],
+                    request.POST.get('email', 'dibya.das96@gmail.com'),
                     ['dibya.das96@gmail.com'],
-                 )
-
-         return render(request, 'contact.html',
-             {'errors': errors})
-
+                )
+        return self.render_to_response({'errors': errors})
 
     def get(self, request):
-        return render(request, 'contact.html', {'none': ''})
+        return self.render_to_response(context={})
+
+#def AboutView(generic.)

@@ -84,5 +84,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-
+try:
+    from blogsite.localsettings import *
+except ImportError:
+    pass

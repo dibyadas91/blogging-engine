@@ -18,27 +18,18 @@ class ContactView(generic.FormView):
     template_name = 'contact.html'
 
     def post(self, request):
-        #raise Exception('Hey I am currently in the post method!')
-        errors = []
-        if request.method == 'POST':
-            if not request.POST.get('subject', ''):
-                errors.append('Enter a subject.')
-            if not request.POST.get('message', ''):
-                errors.append('Enter a message.')
-            if request.POST.get('email') and '@' not in request.POST['email']:
-                errors.append('Enter a valid e-mail address.')
-            if not errors:
-                send_mail(
-                    request.POST['subject'],
-                    request.POST['message'],
-                    request.POST.get('email', 'dibya.das96@gmail.com'),
-                    ['dibya.das96@gmail.com'],
-                )
-                return redirect('PostList')
+        form = Contact(request.POST)
+        if form.is_valid():
+            send_mail(
+                request.POST['subject'],
+                request.POST['message'],
+                request.POST.get('email', 'dibya.das96@gmail.com'),
+                ['dibya.das96@gmail.com'],
+            )
+            return redirect('PostList')
 
-        return self.render_to_response({'errors': errors})
+        return self.render_to_response({'form': form})
 
     def get(self, request):
-        return self.render_to_response(context={})
-
-#def AboutView(generic.)
+        form = Contact()
+        return self.render_to_response({'form':form})

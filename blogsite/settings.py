@@ -78,7 +78,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-MEDIA_ROOT = '/Users/Das/Documents/Blog/blogging-engine/blogsite/blog/static/images'
+MEDIA_ROOT = '/Users/Das/Documents/Blog/blogging-engine/blogsite/blog/static'
 MEDIA_URL = 'http://127.0.0.1:8000/media/'
 
 

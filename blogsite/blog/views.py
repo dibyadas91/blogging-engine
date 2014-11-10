@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views import generic
 
 from forms import ContactForm
-from models import Post, About
+from models import Post, About, Album, Tag, Image
 
 
 class PostListView(generic.ListView):
@@ -39,3 +39,10 @@ class AboutView(generic.ListView):
     model = About
     template_name = 'about.html'
     context_object_name = 'about'
+
+class PhotographyView(generic.ListView):
+
+    model = Image
+    template_name = 'photography.html'
+    context_object_name = 'image'
+

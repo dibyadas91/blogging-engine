@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^$', views.PostListView.as_view(), name='PostList'),
     url(r'^contact/', views.ContactView.as_view(), name='Contact'),
     url(r'^about/', views.AboutView.as_view() ,name='About'),
+    url(r'^photography/', views.PhotographyView.as_view(),name='Photography'),
     url(r'^admin/', include(admin.site.urls)),
 )

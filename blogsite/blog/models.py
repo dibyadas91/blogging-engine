@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from blogsite.settings import MEDIA_ROOT
 from PIL import Image as PImage
 
+
 class Post(models.Model):
 
     title = models.CharField(max_length=255)
@@ -18,6 +19,7 @@ class Post(models.Model):
     def __unicode__(self):
         return "%s" % self.title
 
+
 class About(models.Model):
 
     title = models.CharField(max_length=255)
@@ -26,16 +28,26 @@ class About(models.Model):
     def __unicode__(self):
         return "%s" % self.title
 
+
 class Album(models.Model):
     title = models.CharField(max_length=60)
     public = models.BooleanField(default=False)
+
+    def images(self):
+        lst =[x.image.name for x in self.image_set.all()]
+        lst = ["<a href='/media/%s'>%s</a>" % (x, x.split('/')[-1]) for x in lst]
+        return join(lst, ', ')
+    images.allow_tags = True
+
     def __unicode__(self):
         return self.title
+
 
 class Tag(models.Model):
     tag = models.CharField(max_length=50)
     def __unicode__(self):
         return self.tag
+
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
@@ -71,7 +83,7 @@ class Image(models.Model):
         return str(join(lst, ', '))
 
     def thumbnail(self):
-        return """<a href="/images/%s"><img border="0" alt="" src="/images/%s" height="40" /></a>""" % (
+        return """<a href="/media/%s"><img border="0" alt="" src="/images/%s" height="40" /></a>""" % (
                                                                     (self.image.name, self.image.name))
     thumbnail.allow_tags = True
 

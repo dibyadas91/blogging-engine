@@ -58,3 +58,9 @@ class ContactViewTests(TestCase):
         })
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('PostList'))
+
+class AboutViewTests(TestCase):
+    pass
+
+class HobbiesViewTests(TestCase):
+    pass

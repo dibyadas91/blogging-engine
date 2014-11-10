@@ -18,10 +18,6 @@ class Post(models.Model):
     def __unicode__(self):
         return "%s" % self.title
 
-# Create new model to store the contact messages in the database
-class Contact(models.Model):
-    pass
-
 class About(models.Model):
 
     title = models.CharField(max_length=255)
@@ -75,9 +71,7 @@ class Image(models.Model):
         return str(join(lst, ', '))
 
     def thumbnail(self):
-        return """<a href="/media/%s"><img border="0" alt="" src="/media/%s" height="40" /></a>""" % (
+        return """<a href="/images/%s"><img border="0" alt="" src="/images/%s" height="40" /></a>""" % (
                                                                     (self.image.name, self.image.name))
     thumbnail.allow_tags = True
 
-    def __unicode__(self):
-        return self.image.name

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block about %}
+    <h1>About Me</h1>
+    <div class="col-sm-8 blog-main">
+          <div class="blog-post">
+            {% for field in about %}
+                {{ field.about|safe }}
+            {% endfor %}
+          </div>
+    </div>
+{% endblock %}

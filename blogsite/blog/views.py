@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views import generic
 
 from forms import ContactForm
-from models import Post
+from models import Post, About
 
 
 class PostListView(generic.ListView):
@@ -33,3 +33,9 @@ class ContactView(generic.FormView):
     def get(self, request):
         form = ContactForm()
         return self.render_to_response({'form':form})
+
+class AboutView(generic.ListView):
+
+    model = About
+    template_name = 'about.html'
+    context_object_name = 'about'

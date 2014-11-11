@@ -51,7 +51,7 @@ class Tag(models.Model):
 
 class Image(models.Model):
     title = models.CharField(max_length=60, blank=True, null=True)
-    image = models.FileField(upload_to="images/")
+    image = models.FileField(upload_to="images")
     tags = models.ManyToManyField(Tag, blank=True)
     albums = models.ManyToManyField(Album, blank=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -83,7 +83,7 @@ class Image(models.Model):
         return str(join(lst, ', '))
 
     def thumbnail(self):
-        return """<a href="/media/%s"><img border="0" alt="" src="/images/%s" height="40" /></a>""" % (
+        return """<a href="/static/%s"><img border="0" alt="" src="/static/%s" height="40" /></a>""" % (
                                                                     (self.image.name, self.image.name))
     thumbnail.allow_tags = True
 

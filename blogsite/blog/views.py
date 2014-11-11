@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views import generic
 
 from forms import ContactForm
-from models import Post, About, Album, Tag, Image
+from models import Post, About, Image
 
 
 class PostListView(generic.ListView):

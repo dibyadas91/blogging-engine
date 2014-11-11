@@ -4,8 +4,8 @@
     <div class="main">
         <!-- Albums -->
         <ul>
-            {% for image in image.image %}
-                <img border="0" alt="" src="/Users/Das/Documents/Blog/blogging-engine/blogsite/blog/static{{ image }}" />
+            {% for images in image %}
+                <img src="{{ media_url }}{{ images.image }}"/>
             {% endfor %}
         </ul>
 

@@ -5,6 +5,9 @@ from django.db import models
 from django.contrib.auth.models import User
 from blogsite.settings import MEDIA_ROOT
 from PIL import Image as PImage
+from django.core.files import File
+from os.path import join as Pjoin
+from tempfile import *
 
 
 class Post(models.Model):
@@ -60,11 +63,30 @@ class Image(models.Model):
     height = models.IntegerField(blank=True, null=True)
     user = models.ForeignKey(User, null=True, blank=True)
 
+    thumbnail2 = models.ImageField(upload_to="images", blank=True, null=True)
+
     def save(self, *args, **kwargs):
         """Save image dimensions."""
         super(Image, self).save(*args, **kwargs)
         im = PImage.open(os.path.join(MEDIA_ROOT, self.image.name))
         self.width, self.height = im.size
+        super(Image, self).save(*args, ** kwargs)
+
+        fn, ext = os.path.splitext(self.image.name)
+        im.thumbnail((128,128), PImage.ANTIALIAS)
+        thumb_fn = fn + "-thumb2" + ext
+        tf2 = NamedTemporaryFile()
+        im.save(tf2.name, "JPEG")
+        self.thumbnail2.save(thumb_fn, File(open(tf2.name)), save=False)
+        tf2.close()
+
+        im.thumbnail((40,40), PImage.ANTIALIAS)
+        thumb_fn = fn + "-thumb" + ext
+        tf = NamedTemporaryFile()
+        im.save(tf.name, "JPEG")
+        self.thumbnail2.save(thumb_fn, File(open(tf.name)), save=False)
+        tf.close()
+
         super(Image, self).save(*args, ** kwargs)
 
     def size(self):

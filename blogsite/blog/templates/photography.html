@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block photography %}
-    <div class="main">
+    <div class="col-sm-8 blog-main">
         <!-- Albums -->
         <ul>
             {% for images in image %}
-                <img src="http://127.0.0.1:8000/static/{{ images.image }}"/>
+                <a href="http://127.0.0.1:8000/static/{{ images.image.name }}">
+                <img border="0" alt="" src="http://127.0.0.1:8000/static/{{ images.image }}" height="125"/></a>
             {% endfor %}
         </ul>
 

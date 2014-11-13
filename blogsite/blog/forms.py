@@ -9,5 +9,5 @@ class ContactForm(forms.Form):
         max_length=100,
         widget=forms.EmailInput(attrs={'class': 'form-control'})
     )
-    message = forms.CharField(widget=Textarea())
-    email = forms.EmailField()
+    message = forms.CharField(widget=Textarea(attrs={'class': 'form-control'}))
+    email = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))

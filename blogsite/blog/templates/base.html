@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Blog Template for Bootstrap</title>
+    <title>Dibya Das's Blog</title>
 
     <!-- Bootstrap core CSS -->
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -29,6 +29,28 @@
     <![endif]-->
   </head>
 </head>
+<style>
+    body {
+        background: url(http://wallpoper.com/images/00/31/33/51/black-background_00313351.jpg)
+                    no-repeat center center fixed;
+    }
+
+    .blog-masthead {
+          background:url(http://wallpoper.com/images/00/31/33/51/black-background_00313351.jpg)
+                            no-repeat center center fixed;
+          -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+                  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+    }
+
+    .blog-footer {
+        background:url(http://wallpoper.com/images/00/31/33/51/black-background_00313351.jpg)
+                        no-repeat center center fixed;
+        padding: 40px 0;
+        color: #999;
+        text-align: center;
+        border-top: 1px solid #e5e5e5;
+}
+</style>
 <body>
 
 
@@ -39,7 +61,7 @@
           <a class="blog-nav-item" href="{%  url 'About' %}">About Me</a>
           <a class="blog-nav-item" href="#">Projects</a>
           <a class="blog-nav-item" href="{% url 'Photography' %}">Photography</a>
-          <a class="blog-nav-item" href="#">Hobbies</a>
+          <a class="blog-nav-item" href="#">Tutoring</a>
           <a class="blog-nav-item" href="{%  url 'Contact' %}">Contact Me</a>
         </nav>
       </div>
@@ -47,10 +69,6 @@
 
     <div class="container">
 
-      <div class="blog-header">
-        <h1 class="blog-title">The Bootstrap Blog</h1>
-        <p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>
-      </div>
 
       <div class="row">
 

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block photography %}
-    <div class="col-sm-8 blog-main">
+     <div class="blog-header">
+        <h1 class="blog-title">Photography Collection</h1>
+        <p class="lead blog-description">Click on one of the albums to see more</p>
+     </div>
+     <div class="col-sm-8 blog-main">
         <!-- Albums -->
         <ul>
             {% for images in image %}
@@ -10,5 +14,5 @@
             {% endfor %}
         </ul>
 
-    </div>
+     </div>
 {% endblock %}

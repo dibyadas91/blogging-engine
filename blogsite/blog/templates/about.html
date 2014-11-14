@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 
 {% block about %}
-    <h1>About Me</h1>
+    <div class="blog-header">
+        <h1 class="blog-title">About me</h1>
+        <p class="lead blog-description">A little about me!</p>
+     </div>
     <div class="col-sm-8 blog-main">
           <div class="blog-post">
             {% for field in about %}

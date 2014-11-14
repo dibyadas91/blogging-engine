@@ -33,6 +33,7 @@
     body {
         background: url(http://wallpoper.com/images/00/31/33/51/black-background_00313351.jpg)
                     no-repeat center center fixed;
+        color: #FFFFFF
     }
 
     .blog-masthead {
@@ -49,11 +50,17 @@
         color: #999;
         text-align: center;
         border-top: 1px solid #e5e5e5;
-}
+    }
+
+    .blog-title {
+        color: #e5e5e5;
+    }
+
+    .blog-post-title {
+        color: #e5e5e5;
+    }
 </style>
 <body>
-
-
     <div class="blog-masthead">
       <div class="container">
         <nav class="blog-nav">
@@ -66,12 +73,8 @@
         </nav>
       </div>
     </div>
-
     <div class="container">
-
-
       <div class="row">
-
         <!-- /.blog-main -->
         {% block post %}{% endblock %}
         {% block contact %}{% endblock %}
@@ -105,9 +108,7 @@
             </ol>
           </div>
         </div><!-- /.blog-sidebar -->
-
       </div><!-- /.row -->
-
     </div><!-- /.container -->
 
     <div class="blog-footer">
@@ -116,8 +117,6 @@
         <a href="#">Back to top</a>
       </p>
     </div>
-
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -125,8 +124,5 @@
     <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-
 </body>
 </html>
